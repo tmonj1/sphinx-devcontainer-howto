@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>マニュアル開発環境の構築 &mdash; Sphinxによるドキュメント作成 0.1 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="_static/tiny_segmenter.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="reStructuredTextの書き方" href="rest.html" />
+    <link rel="prev" title="Sphinxによるドキュメント作成" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Sphinxによるドキュメント作成
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目次</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">マニュアル開発環境の構築</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1. 前提条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pc">2. ローカルPC上の環境構築</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3. 開発環境のコンテナ化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dockerfile">3.1 Dockerfile の作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-compose">3.2 Docker Compose ファイルの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.3 イメージのビルドとテーマの確認</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-containers">3.4 Remote - Containers から起動</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vscode-sphix">(1) VSCode で sphixフォルダを開く</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">(2) 起動後、ウィンドウ左下隅のアイコンをクリック</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reopen-in-container">(3) コマンドパレットから &quot;Reopen in Container&quot; を選択</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.5 ビルドの実行確認</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rest.html">reStructuredTextの書き方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">ドキュメントのビルド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figure.html">いろいろな図</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">参考文献</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sphinxによるドキュメント作成</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>マニュアル開発環境の構築</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>マニュアル開発環境の構築<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Docker + VSCode + Remote-Container機能拡張による Sphinx マニュアル開発環境の構築方法について説明します。</p>
+<div class="section" id="id2">
+<h2>1. 前提条件<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ローカルPCに以下がインストールされていること。</p>
+<ol class="arabic simple">
+<li><p>Docker</p></li>
+<li><p>VSCode</p></li>
+<li><p>VSCode機能拡張: Remote - Containers</p></li>
+<li><p>VSCode機能拡張: reStructuredText</p></li>
+</ol>
+</div>
+<div class="section" id="pc">
+<h2>2. ローカルPC上の環境構築<a class="headerlink" href="#pc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>環境構築は Sphinx の(ほぼ)Docker公式イメージである &quot;sphinxdoc/sphinx&quot; を使用し、そこからセットアップツールの`quickstart`を実行して初期開発環境を作成します。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 空のフォルダを作成</span>
+$ mkdir sphinx
+
+<span class="c1"># quickstart を使って環境を初期化</span>
+<span class="c1">#  --sep: ソースコードをsourceフォルダ、ビルド結果をbuildフォルダに分ける</span>
+<span class="c1">#  -p &lt;project name&gt;: プロジェクト名</span>
+<span class="c1">#  -a &lt;author&gt;: 著者</span>
+<span class="c1">#  -v &lt;version&gt; -r &lt;release&gt;: バージョン番号とリリース番号</span>
+<span class="c1">#  -l &lt;lang&gt;: en/ja/zh_CN</span>
+$ docker run -it --rm -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/docs sphinxdoc/sphinx:4.0.2 <span class="se">\</span>
+  sphinx-quickstart --sep -p phinx-devcontainer-howto -a tmj -v <span class="m">0</span>.1 -r <span class="m">0</span>.1 -l ja
+
+<span class="c1"># 実行結果 (以下のフォルダ構成が作成される)</span>
+$ tree .
+.
+├── Dockerfile
+├── Makefile
+├── README.md
+├── build
+├── docker-compose.yml
+├── make.bat
+├── projectinfo.env
+└── <span class="nb">source</span>
+    ├── _static
+    ├── _templates
+    ├── conf.py
+    └── index.rst
+
+<span class="c1"># ビルドが正しくできるか確認</span>
+$ docker run --rm -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/docs sphinxdoc/sphinx:4.0.2 make html
+$ open build/html/index.html  <span class="c1"># Webブラウザで画面を見て確認</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>3. 開発環境のコンテナ化<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="dockerfile">
+<h3>3.1 Dockerfile の作成<a class="headerlink" href="#dockerfile" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Read the Docs テーマをプレインストールした Dockerfileを以下の通り作成しプロジェクトのルートフォルダに置きます。</p>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">sphinxdoc/sphinx:4.0.2</span>
+
+<span class="c">#</span>
+<span class="c"># Debian packages</span>
+<span class="c">#</span>
+
+<span class="c"># Components required for building PDF documents</span>
+<span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt-get install -y latexmk <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt-get install -y texlive-lang-cjk <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt-get install -y texlive-formats-extra
+
+<span class="c">#</span>
+<span class="c"># Sphinx Extensions</span>
+<span class="c">#</span>
+
+<span class="c"># Read the Docs theme (https://sphinx-rtd-theme.readthedocs.io/en/stable/)</span>
+<span class="k">RUN</span> pip install sphinx-rtd-theme
+
+<span class="c"># i18n support</span>
+<span class="k">RUN</span> pip install sphinx-intl
+
+<span class="c"># fontawesome</span>
+<span class="k">RUN</span> pip install sphinx_fontawesome
+
+<span class="c"># autobuild</span>
+<span class="k">RUN</span> pip install sphinx-autobuild
+
+<span class="c"># trim redandunt space in Japanese text.</span>
+<span class="k">RUN</span> pip install sphinxcontrib-trimblank
+
+<span class="c"># blockdiag extensions</span>
+<span class="k">RUN</span> pip install sphinxcontrib-blockdiag <span class="se">\</span>
+                sphinxcontrib-seqdiag <span class="se">\</span>
+                sphinxcontrib-actdiag <span class="se">\</span>
+                sphinxcontrib-nwdiag
+
+<span class="c"># tseg search for better Japanese search</span>
+<span class="c">#   and a patch for tseg search for python 4 (https://github.com/whosaysni/sphinx-tsegsearch/pull/3)</span>
+<span class="k">RUN</span> pip install sphinx-tsegsearch<span class="o">==</span><span class="m">1</span>.0 <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /usr/local/lib/python3.9/site-packages/sphinx_tsegsearch/ <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> mv __init__.py __init__.py.org <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> cat __init__.py.org <span class="p">|</span> sed -e <span class="s1">&#39;s/add_javascript/add_js_file/&#39;</span> &gt; __init__.py <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> rm __init__.py.org
+</pre></div>
+</div>
+</div>
+<div class="section" id="docker-compose">
+<h3>3.2 Docker Compose ファイルの作成<a class="headerlink" href="#docker-compose" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Docker Compose ファイルの作成は必須ではないありませんが、あると docker コマンドの細かい引数を覚えなくてもいいので一応作っておきます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">:</span> <span class="s1">&#39;3.8&#39;</span>
+
+<span class="n">services</span><span class="p">:</span>
+  <span class="n">sphinx</span><span class="p">:</span>
+    <span class="n">image</span><span class="p">:</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">devcontainer</span><span class="o">-</span><span class="n">howto</span><span class="p">:</span><span class="mf">0.1</span>
+    <span class="n">build</span><span class="p">:</span>
+      <span class="n">context</span><span class="p">:</span> <span class="o">.</span>
+      <span class="n">dockerfile</span><span class="p">:</span> <span class="n">Dockerfile</span>
+    <span class="n">volumes</span><span class="p">:</span>
+      <span class="o">-</span> <span class="o">.</span><span class="p">:</span><span class="o">/</span><span class="n">docs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>3.3 イメージのビルドとテーマの確認<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Dockerイメージをビルドし、Read the Docsテーマがきちんと動作することを確認。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># イメージのビルド</span>
+$ docker-compose build
+
+<span class="c1"># Read the Docs テーマの設定 (see https://sphinx-rtd-theme.readthedocs.io/en/stable/)</span>
+$ vi source/conf.py <span class="c1"># extensionsに &quot;sphinx_rtd_theme&quot; を追加 etc.</span>
+
+<span class="c1"># ビルドしてテーマが適用されているか確認</span>
+$ docker run --rm -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/docs tmj-sphinx:0.1 make html
+$ open build/html/index.html  <span class="c1"># Webブラウザで画面を見て確認</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="remote-containers">
+<h3>3.4 Remote - Containers から起動<a class="headerlink" href="#remote-containers" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下の手順でVSCodeのRemote-Containersから起動します。</p>
+<div class="section" id="vscode-sphix">
+<h4>(1) VSCode で sphixフォルダを開く<a class="headerlink" href="#vscode-sphix" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx フォルダでVSCodeを起動</span>
+$ code .
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>(2) 起動後、ウィンドウ左下隅のアイコンをクリック<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<a class="reference internal image-reference" href="_images/rc-icon.png"><img alt="_images/rc-icon.png" src="_images/rc-icon.png" style="width: 454.29999999999995px; height: 192.5px;" /></a>
+</div>
+<div class="section" id="reopen-in-container">
+<h4>(3) コマンドパレットから &quot;Reopen in Container&quot; を選択<a class="headerlink" href="#reopen-in-container" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<a class="reference internal image-reference" href="_images/cmdpallete.png"><img alt="_images/cmdpallete.png" src="_images/cmdpallete.png" style="width: 702.8px; height: 262.5px;" /></a>
+<p>これでコンテナ内でSphinxを開かれます。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>3.5 ビルドの実行確認<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>VSCodeのTerminalを開くと、最初から &quot;/docs&quot; フォルダが開かれます。ビルドするには、<cite>make html</cite> を実行します。正しくビルドできたら成功です。&quot;build/html/index.html&quot;ファイルが出力されるので、それをブラウザで開くと正しくビルドできていることが確認できます。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="rest.html" class="btn btn-neutral float-right" title="reStructuredTextの書き方" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Sphinxによるドキュメント作成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, tmj.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,772 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>reStructuredTextの書き方 &mdash; Sphinxによるドキュメント作成 0.1 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="_static/tiny_segmenter.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="ドキュメントのビルド" href="build.html" />
+    <link rel="prev" title="Sphinxによるドキュメント作成" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Sphinxによるドキュメント作成
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目次</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">reStructuredTextの書き方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1. 文章の記述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#index-0">(1) タイトル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#index-1">(2) 見出し (章、節、小節)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#index-2">(3) 段落、インデント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre">(4) 整形済みテキスト(&lt;pre&gt;)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">(5) コードブロック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notewarning">(6) NoteとWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">(7) 文字装飾、エスケープ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">2. 箇条書き</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">(1) 番号付きリスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">(2) 番号なしリスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">(3) 定義リスト</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#chapter-3-table">3. 表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#csv">(1) CSVテーブル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">(2) リストテーブル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">(3) グリッドテーブル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">(4) シンプルテーブル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#figure-numbering">(5) 図表番号</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">4. 画像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#image">(1) 画像 (image)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#figure">(2) 図 (figure)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">(3) 図表番号</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">5. リンク</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#url">(1) ハイパーリンク (URL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">(2) ハイパーリンク (ページ内リンク)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">(3) 他のページへのリンク</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id22">6. ページの構成と目次</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id23">(1) マスタードキュメント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">(2) ページの追加</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">(3) 目次</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id26">7. その他</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id27">(1) コメント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#todo">(2) Todoリスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#font-awesome">(3) Font Awesome アイコン</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">ドキュメントのビルド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">参考文献</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sphinxによるドキュメント作成</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>reStructuredTextの書き方</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/rest.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="restructuredtext">
+<h1>reStructuredTextの書き方<a class="headerlink" href="#restructuredtext" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Sphinxでドキュメントを作成するには、reStructuredText と呼ばれるマークアップ言語で文書を記述します。本文書では、reStructuredText の書き方について解説します。</p>
+<div class="section" id="id1">
+<h2>1. 文章の記述<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="index-0">
+<span id="id2"></span><h3>(1) タイトル<a class="headerlink" href="#index-0" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下のように``===``で上下で囲みます(見出しの長さ以上の長さが必要です)。文法的には``=``ではなく``#``など他の記号文字でも良いのですが、記述ルールとしては``=``にしておいたほうがよいでしょう。</p>
+<p>※ reStructured Text (reST) の文法はここに限らず全体的にかなり自由度があり、同じ結果を得るのにいろいろな書き方が可能です。ただ随時異なる書き方をしても意味はないので、本文書では reST の仕様そのものではなく、ある程度一般的な書法に決め打ちして説明します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==========================================</span>
+<span class="n">SphinxによるreStructuredTextの書き方</span>
+<span class="o">==========================================</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="index-1">
+<span id="id3"></span><h3>(2) 見出し (章、節、小節)<a class="headerlink" href="#index-1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>レベル1からレベル3 (章、節、小節) までの見出しは、それぞれ異なる記号文字でアンダーラインを引きます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">章見出し</span> <span class="p">(</span><span class="n">レベル1</span><span class="p">)</span>
+<span class="o">=======================</span>
+
+<span class="n">節見出し</span> <span class="p">(</span><span class="n">レベル2</span><span class="p">)</span>
+<span class="o">-------------------</span>
+
+<span class="n">小節見出し</span> <span class="p">(</span><span class="n">レベル3</span><span class="p">)</span>
+<span class="o">~~~~~~~~~~~~~~~~~~~~~~~</span>
+</pre></div>
+</div>
+<p>レベル4以上の見出しを使う場合は (最大6レベル)、さらに別の記号文字でアンダーラインを引きます (それまでのレベルでまだ使ってない記号文字であれば何でも可)。</p>
+</div>
+<div class="section" id="index-2">
+<span id="id4"></span><h3>(3) 段落、インデント<a class="headerlink" href="#index-2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>行頭からいきなり文を書き始めればそのまま本文になります。改行は半角スペースと同じ扱いになります。明示的に改行したいとき、つまり段落を新たに起こしたいときは空行を1行入れます。実際には2行以上入れても良いのですが、文章作成ルールとしては常に1行にしておいたほうが無難です。</p>
+<p>段落をまるごとインデントしたいときは、単にインデントして書き始めればよいだけです。インデント幅は自由ですが、半角スペース2つが良いでしょう。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  これはインデントした文章の例です。
+(↑行頭にスペースが2つ入っています)
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<blockquote>
+<div><p>これはインデントした文章の例です。</p>
+</div></blockquote>
+</div>
+<div class="section" id="pre">
+<h3>(4) 整形済みテキスト(&lt;pre&gt;)<a class="headerlink" href="#pre" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>HTMLの&lt;pre&gt;のように記号や改行を解釈なしでそのまま反映したいときは行頭に :: を書き、空行を1行空けたあとにインデントして書きます。
+&quot;タイトル::&quot;のように書くと、タイトルを入れられます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>整形済みテキストの例::
+
+  *などの記号や改行などが
+  そのまま維持されます。
+</pre></div>
+</div>
+<p>整形済みテキストの例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>*などの記号や改行などが
+そのまま維持されます。
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>(5) コードブロック<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ソースコードの例を載せるときは、&quot;.. sourcecode&quot; ディレクティブを使います。&quot;:linenos:&quot;オプションを使うと行番号を入れられます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">sourcecode</span><span class="p">::</span> <span class="n">javascript</span>
+  <span class="p">:</span><span class="n">linenos</span><span class="p">:</span>
+  <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">ES6</span> <span class="n">code</span> <span class="n">example</span>
+
+  <span class="n">const</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">bar</span><span class="p">();</span>
+  <span class="n">const</span> <span class="n">baz</span> <span class="o">=</span> <span class="n">foo</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-number">リスト 1 </span><span class="caption-text">ES6 code example</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kd">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">bar</span><span class="p">();</span>
+<span class="linenos">2</span><span class="kd">const</span> <span class="nx">baz</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="notewarning">
+<h3>(6) NoteとWarning<a class="headerlink" href="#notewarning" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>文章中に注記や警告を書けます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. note::
+
+  これはノートです。
+
+.. warning::
+
+  これは警告です。
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>これはノートです。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>これは警告です。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>(7) 文字装飾、エスケープ<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><strong>文字装飾</strong></p>
+<ul class="simple">
+<li><p>**太字** と書くと太字 (bold) になります。</p></li>
+<li><p>**italic** と書くと斜体 (italic) になります。</p></li>
+</ul>
+<p><strong>エスケープ</strong></p>
+<ul class="simple">
+<li><p>* などの記号をSphinxに解釈されないようにエスケープするには \* のように \ でエスケープします。</p></li>
+<li><p>``*`` のように2重のバックスラッシュで囲む方法もありますが、こちらは色が変わります。例) ``*`` → <code class="docutils literal notranslate"><span class="pre">*</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>2. 箇条書き<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id8">
+<h3>(1) 番号付きリスト<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">1.</span></code>, <code class="docutils literal notranslate"><span class="pre">2.</span></code>, .. のように &quot;番号+.(ピリオド)&quot; の形式で書きます。Markdownと違って1から連番にしないと正しくビルドされません。</p>
+<p>リスト項目はそれぞれが一つの段落なので空行を入れてから開始し、次のリスト項目との間にも空行を入れます。リスト項目自体は複数行テキストとして書けます。その場合、2行目を空行とし、3行目以降はインデントします。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. リスト1
+
+  リスト1の内容はこちら。
+
+  複数段落もOK。
+
+2. リスト2
+
+3. リスト3
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<ol class="arabic simple">
+<li><p>リスト1</p></li>
+</ol>
+<blockquote>
+<div><p>リスト1の内容はこちら。</p>
+<p>複数段落もOK。</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>リスト2</p></li>
+<li><p>リスト3</p></li>
+</ol>
+</div>
+<div class="section" id="id9">
+<h3>(2) 番号なしリスト<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>番号なしリストは``+``、<code class="docutils literal notranslate"><span class="pre">-</span></code>、<code class="docutils literal notranslate"><span class="pre">*</span></code> のいずれかを先頭につけます。どれでもよいのですが、入れ子にもできるので
+<code class="docutils literal notranslate"><span class="pre">+</span></code>、<code class="docutils literal notranslate"><span class="pre">-</span></code>、<code class="docutils literal notranslate"><span class="pre">*</span></code> の順に使っていくと良いでしょう。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="n">リスト1</span>
+
+<span class="o">+</span> <span class="n">リスト2</span>
+
+  <span class="o">-</span> <span class="n">リスト2</span><span class="mf">.1</span>
+
+  <span class="o">-</span> <span class="n">リスト2</span><span class="mf">.2</span>
+
+<span class="o">+</span> <span class="n">リスト3</span>
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<ul class="simple">
+<li><p>リスト1</p></li>
+<li><p>リスト2</p>
+<ul>
+<li><p>リスト2.1</p></li>
+<li><p>リスト2.2</p></li>
+</ul>
+</li>
+<li><p>リスト3</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>(3) 定義リスト<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>定義リストは用語の定義に使うと便利です。用語を行頭に1行で書き、(空行を空けずに)次行に説明を書きます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>用語1
+  定義の説明・・・・・・
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<dl class="simple">
+<dt>用語1</dt><dd><p>定義の説明・・・・・・</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="chapter-3-table">
+<span id="id11"></span><h2>3. 表<a class="headerlink" href="#chapter-3-table" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>テーブルはいくつかの方法で作れますが、CSVテーブルかリストテーブルが書きやすそうです。</p>
+<p>詳しくは公式ページ: <a class="reference external" href="https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html#tables">https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html#tables</a></p>
+<div class="section" id="csv">
+<h3>(1) CSVテーブル<a class="headerlink" href="#csv" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>&quot;.. csv-table&quot; ディレクティブを使います。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">csv</span><span class="o">-</span><span class="n">table</span><span class="p">::</span>
+
+   <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span>
+   <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<table class="colwidths-given docutils align-default" id="id30">
+<caption><span class="caption-number">表 1 </span><span class="caption-text">Languages</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>TypeScript</p></th>
+<th class="head"><p>ES6</p></th>
+<th class="head"><p>ES5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>const</p></td>
+<td><p>const</p></td>
+<td><p>var</p></td>
+</tr>
+<tr class="row-odd"><td><p>let</p></td>
+<td><p>let</p></td>
+<td><p>var</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id12">
+<h3>(2) リストテーブル<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>&quot;.. list-table&quot; ディレクティブを使います。CSVテーブルとやれることは同じですが、リスト形式で書けます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="nb">list</span><span class="o">-</span><span class="n">table</span><span class="p">::</span> <span class="n">Languages</span>
+  <span class="p">:</span><span class="n">header</span><span class="o">-</span><span class="n">rows</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">:</span><span class="n">widths</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span>
+
+  <span class="o">*</span> <span class="o">-</span> <span class="n">TypeScript</span>
+    <span class="o">-</span> <span class="n">ES6</span>
+    <span class="o">-</span> <span class="n">ES5</span>
+  <span class="o">*</span> <span class="o">-</span> <span class="n">const</span>
+    <span class="o">-</span> <span class="n">const</span>
+    <span class="o">-</span> <span class="n">var</span>
+  <span class="o">*</span> <span class="o">-</span> <span class="n">let</span>
+    <span class="o">-</span> <span class="n">let</span>
+    <span class="o">-</span> <span class="n">var</span>
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<table class="colwidths-given docutils align-default" id="id31">
+<caption><span class="caption-number">表 2 </span><span class="caption-text">Languages</span><a class="headerlink" href="#id31" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>TypeScript</p></th>
+<th class="head"><p>ES6</p></th>
+<th class="head"><p>ES5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>const</p></td>
+<td><p>const</p></td>
+<td><p>var</p></td>
+</tr>
+<tr class="row-odd"><td><p>let</p></td>
+<td><p>let</p></td>
+<td><p>var</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h3>(3) グリッドテーブル<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>下記のように自分で罫線を引きます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+--+--+--+</span>
+<span class="o">|</span> <span class="n">TypeScript</span> <span class="o">|</span> <span class="n">ES6</span>   <span class="o">|</span> <span class="n">ES5</span> <span class="o">|</span>
+<span class="o">+==+==+==+</span>
+<span class="o">|</span> <span class="n">const</span> <span class="o">|</span> <span class="n">const</span> <span class="o">|</span> <span class="n">var</span> <span class="o">|</span>
+<span class="o">+--+--+--+</span>
+<span class="o">|</span> <span class="n">let</span> <span class="o">|</span> <span class="n">let</span>   <span class="o">|</span> <span class="n">var</span> <span class="o">|</span>
+<span class="o">+--+--+--+</span>
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 29%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>TypeScript</p></th>
+<th class="head"><p>ES6</p></th>
+<th class="head"><p>ES5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>const</p></td>
+<td><p>const</p></td>
+<td><p>var</p></td>
+</tr>
+<tr class="row-odd"><td><p>let</p></td>
+<td><p>let</p></td>
+<td><p>var</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id14">
+<h3>(4) シンプルテーブル<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>グリッドテーブルをより簡潔に書ける書き方ですが、列区切りの位置を合わせる必要があるので逆に面倒かもしれません。また、セル内に複数行のテキストが設定できません。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==========</span>  <span class="o">======</span>  <span class="o">=======</span>
+<span class="n">TypeScript</span>  <span class="n">ES6</span>     <span class="n">ES5</span>
+<span class="o">==========</span>  <span class="o">======</span>  <span class="o">=======</span>
+<span class="n">const</span>       <span class="n">const</span>   <span class="n">var</span>
+<span class="n">let</span>         <span class="n">let</span>     <span class="n">var</span>
+<span class="o">==========</span>  <span class="o">======</span>  <span class="o">=======</span>
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 26%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>TypeScript</p></th>
+<th class="head"><p>ES6</p></th>
+<th class="head"><p>ES5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>const</p></td>
+<td><p>const</p></td>
+<td><p>var</p></td>
+</tr>
+<tr class="row-odd"><td><p>let</p></td>
+<td><p>let</p></td>
+<td><p>var</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="figure-numbering">
+<span id="id15"></span><h3>(5) 図表番号<a class="headerlink" href="#figure-numbering" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>conf.py に <cite>numfig = True</cite> と書くと、図表番号が自動で入ります。番号付けされるのは以下です (キャプションに対して付けられるので、キャプションが設定できないシンプルテーブルや画像 (image) は対象外)。</p>
+<ul class="simple">
+<li><p>CSVテーブル</p></li>
+<li><p>リストテーブル</p></li>
+<li><p>図 (figure)</p></li>
+<li><p>コードブロック (sourcecode)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>4. 画像<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="image">
+<h3>(1) 画像 (image)<a class="headerlink" href="#image" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>画像を埋め込むには &quot;.. image&quot; ディレクティブを使います。 &quot;:width&quot; と &quot;:height&quot; オプションを使うとサイズが指定できます。
+&quot;:scale&quot; オプションに % で縮尺を指定できます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. image:: path/to/image.png (ソースファイルからの相対パス。&quot;/&quot;で始めるとソースディレクトリからのパスになる)
+  :scale: 50%
+  :width: 200px (px,em,ex,in,cm,mm,pt,pc が使える)
+  :height: 100px
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>詳しい解説は公式ページを見てください: <a class="reference external" href="https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html#images">https://www.sphinx-doc.org/ja/master/usage/restructuredtext/basics.html#images</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">image</span><span class="p">::</span> <span class="n">images</span><span class="o">/</span><span class="n">image1</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<img alt="_images/image1.png" src="_images/image1.png" />
+</div>
+<div class="section" id="figure">
+<h3>(2) 図 (figure)<a class="headerlink" href="#figure" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>画像と同じですが、キャプションを入れられます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. figure:: images/image1.png
+  :align: center
+
+  これは図です。
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<div class="figure align-center" id="id32">
+<img alt="_images/image1.png" src="_images/image1.png" />
+<p class="caption"><span class="caption-number">図 1 </span><span class="caption-text">これは図です。</span><a class="headerlink" href="#id32" title="この画像へのパーマリンク">¶</a></p>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>(3) 図表番号<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference internal" href="#figure-numbering"><span class="std std-ref">(5) 図表番号</span></a>を参照。</p>
+</div>
+</div>
+<div class="section" id="id18">
+<h2>5. リンク<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="url">
+<h3>(1) ハイパーリンク (URL)<a class="headerlink" href="#url" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>単純にURLを書けばそのままリンクになります。テキストにリンクを設定したいときは、<a class="reference external" href="url">テキスト</a> のように書きます。後者の形式では最初にテキストだけ記述し、別の箇所にURLを書くこともできます (複数箇所で同一のURLを設定したいときに使う)。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* https://www.google.com
+* `Googleへのリンク &lt;https://www.google.com&gt;`_
+* `Googleへのリンク2`_
+
+.. _Googleへのリンク2: https://www.google.com
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.google.com">https://www.google.com</a></p></li>
+<li><p><a class="reference external" href="https://www.google.com">Googleへのリンク</a></p></li>
+<li><p><a class="reference external" href="https://www.google.com">Googleへのリンク2</a></p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h3>(2) ハイパーリンク (ページ内リンク)<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>章や節にリンクを貼りたいときは、&quot;.. _label-1:&quot; のように飛び先の章や節の直前にラベルを設定し、&quot;:ref: label-1&quot; のように &quot;:ref:&quot; で参照します。ラベル設定時は先頭に &quot;_&quot; をつけ、ラベル参照時には &quot;_&quot; を付けないことに注意。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. _chapter-3-table:
+
+3. 表
+=================================
+
+表については :ref:`chapter-3-table` を参照してください。
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<p>表については <a class="reference internal" href="#chapter-3-table"><span class="std std-ref">3. 表</span></a>を参照してください。</p>
+</div>
+<div class="section" id="id21">
+<h3>(3) 他のページへのリンク<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>他のページのリンクは &quot;:doc:`ファイル名`&quot; を使います。ファイル名の拡張子は省略できます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ビルドに関しては :doc:`build` を参照してください。
+</pre></div>
+</div>
+<p>上記の表示結果はこのとおり。</p>
+<p>ビルドに関しては<a class="reference internal" href="build.html"><span class="doc">ドキュメントのビルド</span></a>を参照してください。</p>
+</div>
+</div>
+<div class="section" id="id22">
+<h2>6. ページの構成と目次<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id23">
+<h3>(1) マスタードキュメント<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>source フォルダの index.rst はマスタードキュメントと呼ばれ、すべてのページのルートとなります。このページは全体のトップページであり、目次を保持します。初期状態 (=quickstartを実行した直後の状態) ではマスタードキュメントしかありません。</p>
+</div>
+<div class="section" id="id24">
+<h3>(2) ページの追加<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ページを追加するには、source フォルダに任意のファイルを追加し、目次にそのページを追加するだけです。たとえば、&quot;contents.rst&quot; というファイルを追加し、目次にこのファイルを登録します。</p>
+</div>
+<div class="section" id="id25">
+<h3>(3) 目次<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>目次は &quot;.. toctree:&quot; ディレクティブで記述します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+ <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+ <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">目次</span>
+
+ <span class="n">rest</span>
+ <span class="n">build</span>
+ <span class="n">reference</span>
+</pre></div>
+</div>
+<p>上記は、rest.rst、build.rst、reference.rst という3つのファイルがあるときの例です。目次の見出しが &quot;目次&quot;、目次の階層レベルは 2 です。以下のように表示されます。</p>
+<div class="figure align-center" id="id33">
+<a class="reference internal image-reference" href="_images/toc.png"><img alt="_images/toc.png" src="_images/toc.png" style="width: 299.5px; height: 423.0px;" /></a>
+<p class="caption"><span class="caption-number">図 2 </span><span class="caption-text">目次の例</span><a class="headerlink" href="#id33" title="この画像へのパーマリンク">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id26">
+<h2>7. その他<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id27">
+<h3>(1) コメント<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ソースファイルにコメントを書きたいときは、&quot;.. ここはコメント&quot; のように、&quot;.. &quot; に続けて直接テキストを入れます。コメントは画面に表示されません。</p>
+</div>
+<div class="section" id="todo">
+<h3>(2) Todoリスト<a class="headerlink" href="#todo" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>&quot;.. todo::&quot; ディレクティブを使うと、書きかけの項目をマークしておくことができます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">todo</span><span class="p">::</span> <span class="n">あとで書く</span>
+</pre></div>
+</div>
+<p>これは以下のように表示されます。</p>
+<div class="admonition-todo admonition" id="id28">
+<p class="admonition-title">課題</p>
+<p>あとで書く</p>
+</div>
+</div>
+<div class="section" id="font-awesome">
+<h3>(3) Font Awesome アイコン<a class="headerlink" href="#font-awesome" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Font Awesome のアイコンが使えます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. fa:: check
+
+* checkアイコン: :fa:`check`
+
+* check lg アイコン: :fa:`check lg`
+
+* square-o アイコン: :fa:`square-o`
+</pre></div>
+</div>
+<p>これは以下のように表示されます。</p>
+<em class="fa fa-check"></em><ul class="simple">
+<li><p>checkアイコン: <em class="fa fa-check"></em></p></li>
+<li><p>check lg アイコン: <em class="fa fa-check lg"></em></p></li>
+<li><p>square-o アイコン: <em class="fa fa-square-o"></em></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="build.html" class="btn btn-neutral float-right" title="ドキュメントのビルド" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Sphinxによるドキュメント作成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, tmj.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

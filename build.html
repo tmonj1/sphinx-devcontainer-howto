@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ドキュメントのビルド &mdash; Sphinxによるドキュメント作成 0.1 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="_static/tiny_segmenter.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="いろいろな図" href="figure.html" />
+    <link rel="prev" title="reStructuredTextの書き方" href="rest.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Sphinxによるドキュメント作成
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目次</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="rest.html">reStructuredTextの書き方</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ドキュメントのビルド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1. ドキュメントのビルド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2. 自動ビルド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">3. 国際化対応</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="figure.html">いろいろな図</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">参考文献</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sphinxによるドキュメント作成</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ドキュメントのビルド</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/build.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>ドキュメントのビルド<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ビルド手順と国際化対応について説明します。</p>
+<div class="section" id="id2">
+<h2>1. ドキュメントのビルド<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>VSCode から Terminal を開き、/docs フォルダに移動します (デフォルトでこのフォルダが開かれているはずです)。そこで <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> コマンドを実行します。ビルドが成功すると <cite>build/html</cite> フォルダにHTMLが出力されます。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make html
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2. 自動ビルド<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>autobuild エクステンションをインストールしているので、ソースファイルが変更されるたびに自動ビルドすることもできます。自動ビルドを有効にするには、<code class="docutils literal notranslate"><span class="pre">autobuild</span> <span class="pre">&lt;sourceフォルダ&gt;</span> <span class="pre">&lt;buildフォルダ&gt;</span></code> を実行します。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sphinx-autobuild <span class="nb">source</span> build
+</pre></div>
+</div>
+<p>コマンドを打つといったんビルドが実行され、<code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> でページが参照できるようになります。以降、ソースファイルを更新するごとにビルドが実行されるので、<code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> をリロードすればすぐに結果が見られるようになります。ポート番号を変更したいときは、<cite>--port</cite> オプションでポート番号を指定してください。</p>
+<p><cite>sphinx-autobuild</cite> は Makefile に <cite>livehtml</cite> として定義してあるので、以下のコマンドでもOKです。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make livehtml
+</pre></div>
+</div>
+<p>autobuild についての詳しい情報はこちらを参照してください： <a class="reference external" href="https://pypi.org/project/sphinx-autobuild/">sphinx-autobuild</a></p>
+</div>
+<div class="section" id="id4">
+<h2>3. 国際化対応<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Sphinxでは、日本語で作成した文書の英語版や中国語版を簡単に作成できます。手順は以下のとおりです。</p>
+<ol class="arabic simple">
+<li><p>まず通常通り日本語で文書を作成</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">gettext</span></code> コマンドを実行して翻訳カタログファイル (.pot) を作成</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>.potファイルは /build/gettext フォルダに出力されます</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">sphinx-intl</span> <span class="pre">update</span> <span class="pre">-p</span> <span class="pre">build/gettext</span> <span class="pre">-l</span> <span class="pre">en</span></code> を実行し、翻訳カタログ (.pot) から翻訳済みカタログファイル (.po) を作成</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>英語のときは &quot;-l en&quot;、日本語は &quot;-l ja&quot;、中国語は &quot;-l zh_CN&quot; です。</p></li>
+<li><p>.poファイルは /source/local/en/ フォルダに出力されます。(日本語はja、中国語はzh_CNフォルダ)</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>翻訳済みカタログファイルはオリジナル言語のテキスト(最初に日本語で作成したときは日本語)から文を一つ一つ抽出したものです。これらの文を一つ一つ英語に翻訳します。</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>それぞれの文ごとに原文が &quot;msgid&quot;、翻訳文が &quot;msgstr&quot; に入るようになっている (初期状態では msgstr はすべて空)。翻訳するときは msgid の原文を見ながら翻訳を msgstr に入れていくという手順になる。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: ../../source/index.rst:7</span>
+<span class="n">msgid</span> <span class="s2">&quot;目次&quot;</span>
+<span class="n">msgstr</span> <span class="s2">&quot;Table of Contents&quot;</span>
+
+<span class="c1">#: ../../source/index.rst:3</span>
+<span class="n">msgid</span> <span class="s2">&quot;Sphinxによるドキュメント作成&quot;</span>
+<span class="n">msgstr</span> <span class="s2">&quot;Documentation with Sphinx</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-e</span> <span class="pre">SPHINXOPTS=&quot;-D</span> <span class="pre">language='en'&quot;</span> <span class="pre">html</span></code> で英語版の文書をビルド</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>日本語のときは language='ja'、中国語のときは language='zh_CN' を指定</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>(optional) 言語ごとに画像を差し替えることもできます。たとえば、image1.png という画像を英語版では別の画像に差し替えたいときは、英語版画像を <code class="docutils literal notranslate"><span class="pre">image1.en.png</span></code> のように拡張子の手前に言語コード (en/ja/zh_CN) を入れて保存しておきます。Sphinxは英語版ビルド時に image1.png という画像を見ると、まず image1.en.png を探してあればそれを使い、なければ image1.png を使います。</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>各国語版の画像ファイルの命名規則は conf.py の figure_language_filename の設定で変更できます。詳しくは公式マニュアルを参照してください。</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/ja/master/usage/advanced/intl.html#">Sphinx公式ページ - 国際化</a></p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="figure.html" class="btn btn-neutral float-right" title="いろいろな図" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="rest.html" class="btn btn-neutral float-left" title="reStructuredTextの書き方" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, tmj.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
